@@ -1,0 +1,27 @@
+[
+  {
+    "MyOrder": null,
+    "favouriteProducts": [],
+    "MyShoppingCart": [],
+    "ID": "00000000-0000-0000-0000-000000000000",
+    "PersonName": "vaqif",
+    "Surname": "qasimov",
+    "Email": "z",
+    "PhoneNumber": "1323548789",
+    "Birthday": "2003-12-11T00:00:00",
+    "Password": "vaqif123"
+  },
+  {
+    "MyOrder": null,
+    "favouriteProducts": [],
+    "MyShoppingCart": [],
+    "ID": "79567db2-ac9e-4018-a762-d3b16e61d424",
+    "PersonName": "taleh",
+    "Surname": "musayev",
+    "Email": "taleh@gmail.com",
+    "PhoneNumber": "1232468787",
+    "Birthday": "1999-07-28T00:00:00",
+    "Password": "taleh123"
+  }
+
+]

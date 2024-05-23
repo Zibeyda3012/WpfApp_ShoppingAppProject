@@ -1,0 +1,66 @@
+﻿<Page x:Class="WpfApp_ShoppingAppProject.Views.Pages.AdminProfileEditPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp_ShoppingAppProject.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminProfileEditPageView">
+    <Grid Margin="10">
+
+        <Border CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#35A8D9" Offset="0.0"/>
+                    <GradientStop Color="#B1F6EE" Offset="0.5"/>
+                    <GradientStop Color="#3AF6C0" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <StackPanel Margin="0 30 0 0">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 5">
+                <Label Content="Name:"/>
+                <TextBox Width="300" Margin="50 0 0 0" Text="{Binding CopyEditAdmin.PersonName,
+                  UpdateSourceTrigger = PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
+                <Label Content="Surname:"/>
+                <TextBox Width="300" Margin="35 0 0 0" Text="{Binding CopyEditAdmin.Surname,UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
+                <Label Content="Email:"/>
+                <TextBox Width="300" Margin="55 0 0 0" Text="{Binding CopyEditAdmin.Email,UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
+                <Label Content="Phone Number: "/>
+                <TextBox Width="300" Margin="5 0 0 0" Text="{Binding CopyEditAdmin.PhoneNumber,UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
+                <Label Content="Password: "/>
+                <TextBox Width="300" Margin="35 0 0 0" Text="{Binding CopyEditAdmin.Password,UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 5">
+                <Label Content="Date of Birth:"/>
+                <DatePicker Margin="250 0 0 0" Text="{Binding CopyEditAdmin.Birthday,UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0 50 0 0" HorizontalAlignment="Center" >
+                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="0 0 20 0" Content="Cancel" Foreground="White" Command="{Binding CancelCommand}"/>
+                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="20 0 0 0" Content="Save" Foreground="White" Command="{Binding SaveCommand}" />
+            </StackPanel>
+
+        </StackPanel>
+
+
+
+    </Grid>
+</Page>
