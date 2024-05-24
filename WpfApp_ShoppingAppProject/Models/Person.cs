@@ -20,8 +20,7 @@ public abstract class Person : NotificationService, IEquatable<Person>
         get => person_name;
         set
         {
-            if (value is not null && value.Length > 0)
-                person_name = value;
+            person_name = value;
             OnPropertyChanged();
         }
     }
@@ -31,8 +30,7 @@ public abstract class Person : NotificationService, IEquatable<Person>
         get => surname;
         set
         {
-            if (value is not null && value.Length > 0)
-                surname = value;
+            surname = value;
             OnPropertyChanged();
         }
     }
@@ -58,7 +56,7 @@ public abstract class Person : NotificationService, IEquatable<Person>
         {
             //Regex regex = new Regex(@"^\(\+994\)\d{9}$", RegexOptions.IgnoreCase);
 
-            if (value is not null /*&& regex.IsMatch(value)*/)
+             /*&& regex.IsMatch(value)*/
                 phoneNumber = value;
 
             OnPropertyChanged();
@@ -72,7 +70,7 @@ public abstract class Person : NotificationService, IEquatable<Person>
 
     public Person()
     { ID = Guid.NewGuid(); }
-    public Person(string PersonName, string Surname, string Email, string PhoneNumber, DateTime Birthday, string Password):this()
+    public Person(string PersonName, string Surname, string Email, string PhoneNumber, DateTime Birthday, string Password) : this()
     {
         this.PersonName = PersonName;
         this.Surname = Surname;

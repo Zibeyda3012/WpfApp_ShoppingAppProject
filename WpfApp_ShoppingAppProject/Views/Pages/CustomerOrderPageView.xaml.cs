@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp_ShoppingAppProject.Views.Windows
+namespace WpfApp_ShoppingAppProject.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for CustomerProfileEditWindowView.xaml
+    /// Interaction logic for CustomerOrderPageView.xaml
     /// </summary>
-    public partial class CustomerProfileEditWindowView : Window
+    public partial class CustomerOrderPageView : Page
     {
-        public CustomerProfileEditWindowView()
+        public CustomerOrderPageView()
         {
             InitializeComponent();
         }

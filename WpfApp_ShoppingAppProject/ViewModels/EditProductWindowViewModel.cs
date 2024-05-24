@@ -5,38 +5,8 @@ using WpfApp_ShoppingAppProject.DataBases;
 using WpfApp_ShoppingAppProject.Models;
 
 namespace WpfApp_ShoppingAppProject.ViewModels;
-public class EditProductWindowViewModel:BaseViewModel
+public class EditProductWindowViewModel : BaseViewModel
 {
-    //private Product product;
-    //private Product tempProduct;
-
-    //public Product Product { get => product; set { product = value; OnPropertyChanged(); } }
-    //public Product TempProduct { get => tempProduct; set { tempProduct = value; OnPropertyChanged(); } }
-    //public EditProductWindowViewModel()
-    //{
-    //    tempProduct = new();
-    //    SaveCommand = new RelayCommand(SaveCommandExecute);
-    //    CancelCommand = new RelayCommand(CancelCommandExecute);    
-    //}
-
-    //#region SaveCommandSection
-    //public ICommand SaveCommand { get; set; }
-    //public void SaveCommandExecute(object?obj)
-    //{
-    //    Product.SetValue(TempProduct);
-    //    var window = obj as Window;
-    //    window?.Close();
-    //}
-    //#endregion
-
-    //#region CancelCommandSection
-    //public ICommand CancelCommand { get; set; }
-    //public void CancelCommandExecute(object?obj)
-    //{
-    //    var window = obj as Window;
-    //    window?.Close();
-    //}
-    //#endregion
 
     private Product editProduct;
     private Product copyEditProduct;

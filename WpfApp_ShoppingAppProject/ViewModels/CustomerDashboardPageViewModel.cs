@@ -1,20 +1,17 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 using WpfApp_ShoppingAppProject.Commands;
+using WpfApp_ShoppingAppProject.DataBases;
 using WpfApp_ShoppingAppProject.Models;
 using WpfApp_ShoppingAppProject.Services;
 using WpfApp_ShoppingAppProject.Views.Pages;
-using WpfApp_ShoppingAppProject.Views.Windows;
-
 
 namespace WpfApp_ShoppingAppProject.ViewModels;
-
 public class CustomerDashboardPageViewModel : BaseViewModel
 {
     private Customer currentCustomer;
 
     public Customer CurrentCustomer { get { return currentCustomer; } set { currentCustomer = value; OnPropertyChanged(); } }
-
 
     private Page currentView;
 
@@ -26,9 +23,7 @@ public class CustomerDashboardPageViewModel : BaseViewModel
 
     public CustomerDashboardPageViewModel()
     {
-        CurrentView = App.Container!.GetInstance<CustomerAllProductsPageView>();
-        CurrentView.DataContext = App.Container.GetInstance<CustomerAllProductsPageViewModel>();
-
+        HomeCommandExecute(null);
         HomeCommand = new RelayCommand(HomeCommandExecute);
         FavouriteCommand = new RelayCommand(FavouriteCommandExecute);
         ShoppingCartCommand = new RelayCommand(ShoppingCartCommandExecute);
@@ -42,13 +37,11 @@ public class CustomerDashboardPageViewModel : BaseViewModel
 
     private void HomeCommandExecute(object obj)
     {
-        CustomerAllProductsPageView customerAllProductsPageView = App.Container!.GetInstance<CustomerAllProductsPageView>();
+        CurrentView = App.Container!.GetInstance<CustomerAllProductsPageView>();
+        var datacontext = App.Container?.GetInstance<CustomerAllProductsPageViewModel>();
+        datacontext!.CurrentCustomer = AppDbContext.CurrentCustomer;
+        CurrentView!.DataContext = datacontext;
 
-        var customerAllProductsPageViewModel = App.Container.GetInstance<CustomerAllProductsPageViewModel>();
-
-        customerAllProductsPageViewModel.CurrentCustomer = CurrentCustomer;
-        CurrentView=customerAllProductsPageView;
-        CurrentView.DataContext = customerAllProductsPageViewModel;
     }
 
     #endregion
@@ -56,11 +49,12 @@ public class CustomerDashboardPageViewModel : BaseViewModel
     #region FavouriteCommandSection
     public ICommand FavouriteCommand { get; set; }
 
-    private void FavouriteCommandExecute(object obj)
+    public void FavouriteCommandExecute(object obj)
     {
+        HomeCommandExecute(null);
         FavouritesPageView favouritePageView = App.Container!.GetInstance<FavouritesPageView>();
         var favouritePageViewModel = App.Container?.GetInstance<FavouritesPageViewModel>();
-        favouritePageViewModel!.CurrentCustomer = CurrentCustomer;
+        favouritePageViewModel!.CurrentCustomer = AppDbContext.CurrentCustomer;
         CurrentView = favouritePageView;
         CurrentView!.DataContext = favouritePageViewModel;
     }
@@ -71,8 +65,12 @@ public class CustomerDashboardPageViewModel : BaseViewModel
 
     private void ShoppingCartCommandExecute(object obj)
     {
-        //CurrentView = App.Container.GetInstance<AllProductsPageView>();
-        //CurrentView.DataContext = App.Container.GetInstance<AllProductsPageViewModel>();
+        HomeCommandExecute(obj);
+
+        CurrentView = App.Container.GetInstance<ShoppingCartPageView>();
+        var datacontext= App.Container.GetInstance<ShoppingCartPAgeViewModel>();
+        datacontext.CurrentCustomer=CurrentCustomer;
+        CurrentView.DataContext = datacontext;
     }
 
     #endregion
@@ -83,7 +81,11 @@ public class CustomerDashboardPageViewModel : BaseViewModel
 
     private void ProfileCommandExecute(object obj)
     {
-
+        CurrentView = App.Container.GetInstance<CustomerProfileEditPageView>();
+        var datacontext = App.Container.GetInstance<CustomerProfileEditPageViewModel>();
+        datacontext.EditCustomer = CurrentCustomer;
+        datacontext.CopyEditCustomer.SetValue(CurrentCustomer);
+        CurrentView.DataContext = datacontext;
     }
     #endregion
 
@@ -93,7 +95,10 @@ public class CustomerDashboardPageViewModel : BaseViewModel
 
     private void OrderCommandExecute(object obj)
     {
-
+        CurrentView = App.Container.GetInstance<CustomerOrderPageView>();
+        var datacontext = App.Container.GetInstance<CustomerOrderPageViewModel>();
+        datacontext.Orders=AppDbContext.CurrentCustomer.MyOrders;
+        CurrentView.DataContext = datacontext;
     }
     #endregion
 

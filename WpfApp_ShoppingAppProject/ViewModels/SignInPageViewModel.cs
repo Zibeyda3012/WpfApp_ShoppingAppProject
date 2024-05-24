@@ -44,9 +44,9 @@ public class SignInPageViewModel : BaseViewModel
             windowParent.ResizeMode = System.Windows.ResizeMode.CanResize;
         }
 
-        if (Email == "a")
+        if (Email == "zibeyda@gmail.com")
         {
-            if (Password == "a")
+            if (Password == "admin123")
                 ChangePageService.ChangePage<AdminDashboardPageView, AdminDashboardPageViewModel>(obj);
 
             else
@@ -71,10 +71,9 @@ public class SignInPageViewModel : BaseViewModel
 
                     var customerDashboardPageViewModel = App.Container?.GetInstance<CustomerDashboardPageViewModel>()!;
                     customerDashboardPageViewModel.CurrentCustomer = customer;
-
+                    AppDbContext.CurrentCustomer = customer;
                     customerDashboardPageView.DataContext = customerDashboardPageViewModel;
                     page.NavigationService.Navigate(customerDashboardPageView);
-                    //ChangePageService.ChangePage<AdminDashboardPageView, AdminDashboardPageViewModel>(obj);
 
                 }
                 else

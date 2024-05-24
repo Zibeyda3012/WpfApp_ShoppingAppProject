@@ -48,7 +48,9 @@ public class AdminDashboardPageViewModel : BaseViewModel
     private void CustomerCommandExecute(object obj)
     {
         CurrentView = App.Container!.GetInstance<AllCustomersPageView>();
-        CurrentView.DataContext = App.Container.GetInstance<AllCustomersPageViewModel>();
+       var datacontext= App.Container.GetInstance<AllCustomersPageViewModel>();
+        datacontext.Customers = AppDbContext.Customers;
+        CurrentView.DataContext = datacontext;
     }
 
     #endregion
@@ -85,7 +87,9 @@ public class AdminDashboardPageViewModel : BaseViewModel
     private void OrderCommandExecute(object obj)
     {
         CurrentView = App.Container!.GetInstance<AdminOrderPageView>();
-        CurrentView.DataContext = App.Container.GetInstance<AdminOrderPageViewModel>();
+       var datacontext= App.Container.GetInstance<AdminOrderPageViewModel>();
+        datacontext.Orders = AppDbContext.Orders;
+        CurrentView.DataContext = datacontext;
     }
     #endregion
 

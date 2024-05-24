@@ -26,8 +26,8 @@ public class FavouritesPageViewModel : BaseViewModel
         var item = obj as Product;
         if (item is not null)
         {
-            CurrentCustomer.MyShoppingCart.Add(item);
-            AppDbContext.CustomerSaveChanges(); 
+            AppDbContext.CurrentCustomer.MyShoppingCart.Add(item);
+            AppDbContext.CustomerSaveChanges();
         }
     }
 
@@ -41,7 +41,7 @@ public class FavouritesPageViewModel : BaseViewModel
         var item = obj as Product;
         if (item is not null)
         {
-            CurrentCustomer.FavouriteProducts.Remove(item);
+            AppDbContext.CurrentCustomer.FavouriteProducts.Remove(item);
             AppDbContext.CustomerSaveChanges();
         }
     }

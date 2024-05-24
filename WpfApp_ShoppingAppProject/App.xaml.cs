@@ -20,13 +20,16 @@ public partial class App : Application
         Container?.RegisterSingleton<AllCustomersPageView>();
         Container?.RegisterSingleton<AdminAllProductsPageView>();
         Container?.RegisterSingleton<AdminDashboardPageView>();
-        Container?.Register<EditProductWindowView>();
-        Container?.Register<CustomerProfileEditWindowView>();
+        Container?.Register<ProductMoreInfoWindowView>();
         Container?.RegisterSingleton<CustomerDashboardPageView>();
         Container?.RegisterSingleton<AdminProfileEditPageView>();
         Container?.RegisterSingleton<AdminOrderPageView>();
+        Container?.RegisterSingleton<CustomerProfileEditPageView>();
         Container?.RegisterSingleton<CustomerAllProductsPageView>();
-
+        Container?.RegisterSingleton<FavouritesPageView>();
+        Container?.RegisterSingleton<ShoppingCartPageView>();
+        Container?.RegisterSingleton<CustomerOrderPageView>();
+        Container?.RegisterSingleton<EditProductWindowView>();
 
     }
 
@@ -36,16 +39,21 @@ public partial class App : Application
         Container?.RegisterSingleton<SignInPageViewModel>();
         Container?.RegisterSingleton<AdminProfileEditPageViewModel>();
         Container?.RegisterSingleton<SignUpPageViewModel>();
-        Container?.RegisterSingleton<EditProductPageViewModel>();
         Container?.RegisterSingleton<EditProductWindowViewModel>();
         Container?.RegisterSingleton<AddProductPageViewModel>();
         Container?.RegisterSingleton<AllCustomersPageViewModel>();
         Container?.RegisterSingleton<AdminAllProductsPageViewModel>();
         Container?.RegisterSingleton<AdminDashboardPageViewModel>();
         Container?.RegisterSingleton<CustomerDashboardPageViewModel>();
-        Container?.RegisterSingleton<CustomerProfileEditWindowViewModel>();
         Container?.RegisterSingleton<AdminOrderPageViewModel>();
         Container?.RegisterSingleton<CustomerAllProductsPageViewModel>();
+        Container?.RegisterSingleton<ProductMoreInfoWindowViewModel>();
+        Container?.RegisterSingleton<CustomerProfileEditPageViewModel>();
+        Container?.RegisterSingleton<FavouritesPageViewModel>();
+        Container?.RegisterSingleton<ShoppingCartPAgeViewModel>();
+        Container?.RegisterSingleton<CustomerOrderPageViewModel>();
+
+
 
 
     }

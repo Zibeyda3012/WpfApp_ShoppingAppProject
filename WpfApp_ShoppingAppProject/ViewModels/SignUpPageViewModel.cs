@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Text.RegularExpressions;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using WpfApp_ShoppingAppProject.Commands;
@@ -24,8 +25,11 @@ public class SignUpPageViewModel : BaseViewModel
 
     public bool CanSignUpCommandExecute(object? obj)
     {
-        if (!string.IsNullOrEmpty(NewCustomer.Email) && !string.IsNullOrEmpty(NewCustomer.PersonName) && !string.IsNullOrEmpty(NewCustomer.Surname) && !string.IsNullOrEmpty(NewCustomer.Password) && !string.IsNullOrEmpty(NewCustomer.PhoneNumber))
-            return true;
+        string pattern = @"^[A-Za-z0-9_.]+@gmail\.[A-Za-z]+$";
+        Regex regex = new Regex(pattern);
+        if (NewCustomer.PersonName?.Length > 2 && NewCustomer.PhoneNumber?.Length > 2 && NewCustomer?.Surname?.Length > 2
+            && NewCustomer?.Birthday > DateTime.Now.AddYears(-100) && regex.IsMatch(NewCustomer?.Email) &&
+            NewCustomer.Password?.Length>3) return true;
         return false;
     }
     public void SignUpCommandExecute(object? obj)

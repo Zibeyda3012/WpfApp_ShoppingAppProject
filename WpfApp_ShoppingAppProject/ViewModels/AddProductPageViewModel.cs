@@ -17,6 +17,7 @@ public class AddProductPageViewModel : BaseViewModel
         BackCommand = new RelayCommand(BackCommandExecute);
         AddCommand = new RelayCommand(AddCommandExecute, CanAddCommandExecute);
         SelectProductImageCommand = new RelayCommand(SelectProductImageCommandExecute);
+        CancelCommand = new RelayCommand(CancelCommandExecute);
     }
 
     #region AddProductSection
@@ -42,6 +43,14 @@ public class AddProductPageViewModel : BaseViewModel
 
     #endregion
 
+
+    #region CancelCommandЫection
+    public ICommand CancelCommand { get; set; }
+    public void CancelCommandExecute(object?obj)
+    {
+        NewProduct = new();
+    }
+    #endregion
 
     #region SelectProductImageCommandSection
     public ICommand SelectProductImageCommand { get; set; }

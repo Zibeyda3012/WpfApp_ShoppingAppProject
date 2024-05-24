@@ -53,7 +53,7 @@
             <Button Width="300" Margin=" 0 30 0 0" BorderBrush="white" Background="DarkCyan" Content="Select Image" Foreground="White" Command="{Binding SelectProductImageCommand}"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 40 0 0">
-                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="0 0 20 0" Content="Cancel" Foreground="White" Command="{Binding BackCommand}"/>
+                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="0 0 20 0" Content="Cancel" Foreground="White" Command="{Binding CancelCommand}"/>
                 <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="20 0 0 0" Content="Add" Foreground="White" Command="{Binding AddCommand}"/>
             </StackPanel>
 

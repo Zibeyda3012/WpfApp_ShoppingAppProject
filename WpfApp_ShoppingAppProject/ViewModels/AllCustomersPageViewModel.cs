@@ -14,7 +14,6 @@ public class AllCustomersPageViewModel : BaseViewModel
     public ObservableCollection<Customer> Customers { get => customers; set { customers = value; OnPropertyChanged(); } }
     public AllCustomersPageViewModel()
     {
-        Customers = AppDbContext.Customers;
         RemoveCommand=new RelayCommand(RemoveCommandExecute);   
     }
 

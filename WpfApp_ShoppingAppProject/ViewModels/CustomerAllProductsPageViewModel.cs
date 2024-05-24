@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using WpfApp_ShoppingAppProject.Commands;
 using WpfApp_ShoppingAppProject.DataBases;
@@ -26,15 +27,18 @@ public class CustomerAllProductsPageViewModel : BaseViewModel
 
     #region LikeCommandSection
 
-    public ICommand LikeCommand { get; set; }   
+    public ICommand LikeCommand { get; set; }
 
     private void LikeCommandExecute(object obj)
     {
         var item = obj as Product;
 
-        if(item is not null)
+        if (item is not null)
         {
-            CurrentCustomer.FavouriteProducts.Add(item);
+
+            if (AppDbContext.CurrentCustomer.FavouriteProducts.Any(p => p.ProductId == item.ProductId))
+                return;
+            AppDbContext.CurrentCustomer.FavouriteProducts.Add(item);
             AppDbContext.CustomerSaveChanges();
         }
     }
@@ -43,20 +47,20 @@ public class CustomerAllProductsPageViewModel : BaseViewModel
 
     #region AddToCartCommandSection
 
-    public ICommand AddToCartCommand{ get; set; }
+    public ICommand AddToCartCommand { get; set; }
 
     private void AddToCartCommandExecute(object obj)
     {
-        var item= obj as Product;
+        var item = obj as Product;
 
-        if( item is not null )
+        if (item is not null)
         {
-            CurrentCustomer.MyShoppingCart.Add(item);
-            AppDbContext.CustomerSaveChanges(); 
+            AppDbContext.CurrentCustomer?.MyShoppingCart.Add(item);
+            AppDbContext.CustomerSaveChanges();
         }
     }
 
-    #endregion
+    #endregion 
 
     #region MoreInfoCommandSection
 
@@ -64,14 +68,15 @@ public class CustomerAllProductsPageViewModel : BaseViewModel
 
     private void MoreInfoCommandExecute(object obj)
     {
-        //var product = obj as Product;
-        //if (product is null) return;
-        //var window = App.Container.GetInstance<EditProductWindowView>();
-        //var datacontext = App.Container.GetInstance<EditProductWindowViewModel>();
-        //datacontext.EditProduct = product;
-        //datacontext.CopyEditProduct.SetValue(product);
-        //window.DataContext = datacontext;
-        //window.ShowDialog();
+
+        var product = obj as Product;
+        if (product is null) return;
+        var window = App.Container.GetInstance<ProductMoreInfoWindowView>();
+        var datacontext = App.Container.GetInstance<ProductMoreInfoWindowViewModel>();
+        datacontext.CurrentProduct = product;
+        datacontext.CurrentCustomer = CurrentCustomer;
+        window.DataContext = datacontext;
+        window.ShowDialog();
     }
 
     #endregion

@@ -54,7 +54,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0" HorizontalAlignment="Center" >
-                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="0 0 20 0" Content="Cancel" Foreground="White" Command="{Binding CancelCommand}"/>
+
                 <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="20 0 0 0" Content="Save" Foreground="White" Command="{Binding SaveCommand}" />
             </StackPanel>
 

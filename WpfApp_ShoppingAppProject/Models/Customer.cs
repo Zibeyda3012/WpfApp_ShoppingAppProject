@@ -4,11 +4,11 @@ namespace WpfApp_ShoppingAppProject.Models;
 
 public class Customer : Person
 {
-    private Order myOrder;
-    private ObservableCollection<Product> favouriteProducts;
-    private ObservableCollection<Product> myShoppingCart;
+    private ObservableCollection<Product> favouriteProducts=new();
+    private ObservableCollection<Product> myShoppingCart=new();
+    private ObservableCollection<Order> myOrders=new();
 
-    public Order MyOrder { get => myOrder; set { myOrder = value; OnPropertyChanged(); } }
+    public ObservableCollection<Order> MyOrders { get => myOrders; set { myOrders = value; OnPropertyChanged(); } }
 
     public ObservableCollection<Product> FavouriteProducts { get => favouriteProducts; set { favouriteProducts = value; OnPropertyChanged(); } }
 

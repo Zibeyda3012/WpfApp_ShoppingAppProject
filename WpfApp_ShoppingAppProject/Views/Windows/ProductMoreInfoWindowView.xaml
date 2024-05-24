@@ -37,7 +37,8 @@
 
             <StackPanel Orientation="Horizontal" Margin="0 50 0 0" >
                 <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="175 0 20 0" Content="Back" Foreground="White" Command="{Binding BackCommand}" CommandParameter="{Binding ElementName=window}"/>
-                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="30 0 50 0" Content="Add To Cart" Foreground="White" Command="{Binding AddToCartCommand}" CommandParameter="{Binding ElementName=window}"/>
+                <Button BorderBrush="White" Background="DarkCyan" Width="200" Margin="30 0 50 0" Content="Add To Cart" Foreground="White" Command="{Binding AddToCartCommand}"
+                        CommandParameter="{Binding CurrentProduct}"/>
             </StackPanel>
 
         </StackPanel>

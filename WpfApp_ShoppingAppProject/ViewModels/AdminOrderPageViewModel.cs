@@ -11,6 +11,6 @@ public class AdminOrderPageViewModel : BaseViewModel
     public ObservableCollection<Order> Orders { get => orders; set { orders = value; OnPropertyChanged(); } }
     public AdminOrderPageViewModel()
     {
-        Orders = AppDbContext.Orders;
+     
     }
 }

@@ -1,27 +1,58 @@
 [
   {
-    "MyOrder": null,
-    "favouriteProducts": [],
-    "MyShoppingCart": [],
-    "ID": "00000000-0000-0000-0000-000000000000",
-    "PersonName": "vaqif",
-    "Surname": "qasimov",
-    "Email": "z",
-    "PhoneNumber": "1323548789",
-    "Birthday": "2003-12-11T00:00:00",
-    "Password": "vaqif123"
-  },
-  {
-    "MyOrder": null,
-    "favouriteProducts": [],
-    "MyShoppingCart": [],
-    "ID": "79567db2-ac9e-4018-a762-d3b16e61d424",
-    "PersonName": "taleh",
-    "Surname": "musayev",
-    "Email": "taleh@gmail.com",
-    "PhoneNumber": "1232468787",
-    "Birthday": "1999-07-28T00:00:00",
-    "Password": "taleh123"
+    "MyOrders": [
+      {
+        "CustomerPhone": "(\u002B994)553968192",
+        "CustomerEmail": "ziba@gmail.com",
+        "CustomerName": "Zibeyda",
+        "CustomerSurname": "Musayeva",
+        "OrderId": "1d372ca1-d417-4561-ae6c-4dfd5bc38a2a",
+        "MyProducts": [
+          {
+            "ProductId": "542537ca-963a-4540-9f1a-f025f8412e6b",
+            "ProductName": "Moistorizing cream",
+            "Description": "good for dry and acne prone skin types",
+            "Price": 30,
+            "Volume": 50,
+            "Quantity": 54,
+            "Status": "In Stock",
+            "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\7f524dd0e911400eab391d03a05e152c258132958cream.jpg"
+          }
+        ],
+        "OrderDate": "2024-05-24T23:02:37.7584817+04:00",
+        "TotalPrice": 30
+      }
+    ],
+    "FavouriteProducts": [
+      {
+        "ProductId": "3984fa31-92c8-4e37-9ac6-94576c94c696",
+        "ProductName": "Ordinary Acne Serum",
+        "Description": "Good for acne prone skin,removes acne scars",
+        "Price": 35,
+        "Volume": 15,
+        "Quantity": 5,
+        "Status": "In Stock",
+        "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\066d4728acb241b7a85b5828316d7c5f346421649serum_image.jpg"
+      }
+    ],
+    "MyShoppingCart": [
+      {
+        "ProductId": "3984fa31-92c8-4e37-9ac6-94576c94c696",
+        "ProductName": "Ordinary Acne Serum",
+        "Description": "Good for acne prone skin,removes acne scars",
+        "Price": 35,
+        "Volume": 15,
+        "Quantity": 5,
+        "Status": "In Stock",
+        "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\066d4728acb241b7a85b5828316d7c5f346421649serum_image.jpg"
+      }
+    ],
+    "ID": "2ec0c785-1aca-4e4b-a28b-4b1e80bd792b",
+    "PersonName": "Zibeyda",
+    "Surname": "Musayeva",
+    "Email": "ziba@gmail.com",
+    "PhoneNumber": "(\u002B994)553968192",
+    "Birthday": "2003-01-24T00:00:00",
+    "Password": "Zibeyda123"
   }
-
 ]

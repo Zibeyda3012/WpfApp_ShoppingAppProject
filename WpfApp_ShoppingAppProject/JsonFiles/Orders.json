@@ -1,0 +1,23 @@
+[
+  {
+    "CustomerPhone": "(\u002B994)553968192",
+    "CustomerEmail": "zibeyda@gmail.com",
+    "CustomerName": "Zibeyda",
+    "CustomerSurname": "Musayeva",
+    "OrderId": "1d372ca1-d417-4561-ae6c-4dfd5bc38a2a",
+    "MyProducts": [
+      {
+        "ProductId": "542537ca-963a-4540-9f1a-f025f8412e6b",
+        "ProductName": "Moistorizing cream",
+        "Description": "good for dry and acne prone skin types",
+        "Price": 30,
+        "Volume": 50,
+        "Quantity": 54,
+        "Status": "In Stock",
+        "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\7f524dd0e911400eab391d03a05e152c258132958cream.jpg"
+      }
+    ],
+    "OrderDate": "2024-05-24T23:02:37.7584817+04:00",
+    "TotalPrice": 30
+  }
+]

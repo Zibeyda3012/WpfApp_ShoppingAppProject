@@ -8,10 +8,10 @@ namespace WpfApp_ShoppingAppProject.DataBases;
 public static class AppDbContext
 {
     public static string FolderName { get; set; } = "../../../JsonFiles";
-
+    public static Customer CurrentCustomer { get; set; }
     #region AdminDb
 
-    public static Admin? Admin { get; set; } = new Admin("Zibeyda", "Musayeva", "musayevazibeyd@gmail.com", "+994553968192", new DateTime(2003, 12, 30), "Admin123");
+    public static Admin? Admin { get; set; } = new Admin("Zibeyda", "Musayeva", "zibeyda@gmail.com", "+994553968192", new DateTime(2003, 12, 30), "admin123");
 
     public static void AdminSaveChanges()
     {
@@ -196,6 +196,11 @@ public static class AppDbContext
         }
     }
     #endregion
+
+    static AppDbContext()
+    {
+        AdminSaveChanges();
+    }
 
 
 }

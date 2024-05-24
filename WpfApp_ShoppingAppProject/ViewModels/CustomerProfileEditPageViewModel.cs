@@ -1,24 +1,23 @@
-﻿using System.Windows;
+﻿using System.Text.RegularExpressions;
 using System.Windows.Input;
 using WpfApp_ShoppingAppProject.Commands;
 using WpfApp_ShoppingAppProject.DataBases;
 using WpfApp_ShoppingAppProject.Models;
 
 namespace WpfApp_ShoppingAppProject.ViewModels;
-
-public class CustomerProfileEditWindowViewModel:BaseViewModel
+public class CustomerProfileEditPageViewModel : BaseViewModel
 {
     private Customer editCustomer;
-    private Customer copyEditCustomer;
+    private Customer copyEditCustomer = new();
 
     public Customer EditCustomer { get => editCustomer; set { editCustomer = value; OnPropertyChanged(); } }
 
     public Customer CopyEditCustomer { get => copyEditCustomer; set { copyEditCustomer = value; OnPropertyChanged(); } }
-    public CustomerProfileEditWindowViewModel()
+
+    public CustomerProfileEditPageViewModel()
     {
-        CancelCommand = new RelayCommand(CancelCommandExecute);
-        SaveCommand=new RelayCommand(SaveCommandExecute, CanSaveCommandExecute);
-        CopyEditCustomer = new();
+        BackCommand = new RelayCommand(BackCommandExecute);
+        SaveCommand = new RelayCommand(SaveCommandExecute, CanSaveCommandExecute);
     }
 
     #region SaveCommandSection
@@ -27,24 +26,22 @@ public class CustomerProfileEditWindowViewModel:BaseViewModel
 
     public bool CanSaveCommandExecute(object obj)
     {
-        return EditCustomer is not null && !EditCustomer.Equals(CopyEditCustomer);
+        string pattern = @"^[A-Za-z0-9_.]+@gmail\.[A-Za-z]+$";
+        Regex regex = new Regex(pattern);
+        if (CopyEditCustomer.PersonName?.Length > 2 && CopyEditCustomer.PhoneNumber?.Length > 2 && CopyEditCustomer?.Surname?.Length > 2
+            && regex.IsMatch(CopyEditCustomer?.Email) &&
+            CopyEditCustomer.Password?.Length > 3 && !EditCustomer.Equals(CopyEditCustomer))
+            return true;
+
+        return false;
     }
 
     public void SaveCommandExecute(object obj)
     {
         EditCustomer.SetValue(CopyEditCustomer);
         AppDbContext.CustomerSaveChanges();
-        CancelCommandExecute(obj);
     }
 
     #endregion
 
-    #region CancelCommandSection
-    public ICommand CancelCommand { get; set; }
-    public void  CancelCommandExecute(object?obj)
-    {
-        var window = obj as Window;
-        window?.Close();
-    }
-    #endregion
 }

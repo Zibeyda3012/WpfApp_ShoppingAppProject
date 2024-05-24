@@ -8,5 +8,15 @@
     "Quantity": 54,
     "Status": "In Stock",
     "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\7f524dd0e911400eab391d03a05e152c258132958cream.jpg"
+  },
+  {
+    "ProductId": "3984fa31-92c8-4e37-9ac6-94576c94c696",
+    "ProductName": "Ordinary Acne Serum",
+    "Description": "Good for acne prone skin,removes acne scars",
+    "Price": 35,
+    "Volume": 15,
+    "Quantity": 5,
+    "Status": "In Stock",
+    "ImageUrl": "C:\\Users\\Zibeyde\\source\\repos\\WpfApp_ShoppingAppProject\\WpfApp_ShoppingAppProject\\Images\\066d4728acb241b7a85b5828316d7c5f346421649serum_image.jpg"
   }
 ]
